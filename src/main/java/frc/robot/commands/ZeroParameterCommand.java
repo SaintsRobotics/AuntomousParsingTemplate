@@ -16,20 +16,18 @@ import frc.robot.subsystems.ExampleSubsystem;
 /**
  * A mock version of the  Command
  */
-public class OneParamCommand extends ParsableCommand {
+public class ZeroParameterCommand extends ParsableCommand {
     private final ExampleSubsystem m_subsystem;
 
-    String a;
-
-    public OneParamCommand(ExampleSubsystem subsystem) {
+    public ZeroParameterCommand(ExampleSubsystem subsystem) {
         m_subsystem = subsystem;
         // Use addRequirements() here to declare subsystem dependencies.
         addRequirements(subsystem);
     }
 
-    public OneParamCommand(String params, ExampleSubsystem subsystem) {
+    public ZeroParameterCommand(String params, ExampleSubsystem subsystem) {
         m_subsystem = subsystem;
-        a = params;
+        addRequirements(subsystem);
     }
 
     public void parse () { 
@@ -38,7 +36,7 @@ public class OneParamCommand extends ParsableCommand {
     
     @Override
     public void initialize() {
-        SmartDashboard.putString("OneParamCommand Parameter: " + a, a);
+        SmartDashboard.putString("ZeroParamCommand Parameter: ", "");
     }
 
     @Override

@@ -16,26 +16,29 @@ import frc.robot.subsystems.ExampleSubsystem;
 /**
  * A mock version of the  Command
  */
-public class ManyParamCommand extends ParsableCommand {
+public class OneParameterCommand extends ParsableCommand {
     private final ExampleSubsystem m_subsystem;
 
     String a;
 
-    public ManyParamCommand(ExampleSubsystem subsystem) {
+    public OneParameterCommand(ExampleSubsystem subsystem) {
         m_subsystem = subsystem;
         // Use addRequirements() here to declare subsystem dependencies.
         addRequirements(subsystem);
-      }
+    }
 
-    public ManyParamCommand(String params, ExampleSubsystem subsystem) {
+    public OneParameterCommand(String params, ExampleSubsystem subsystem) {
         m_subsystem = subsystem;
         a = params;
     }
 
+    public void parse () { 
+        
+    }
     
     @Override
     public void initialize() {
-        SmartDashboard.putString("ManyParamCommand Parameters: " + a, a);
+        SmartDashboard.putString("OneParamCommand Parameter: " + a, a);
     }
 
     @Override
@@ -45,12 +48,6 @@ public class ManyParamCommand extends ParsableCommand {
     
     public boolean isFinished(){
         return true;
-    }
-
-    @Override
-    public void parse() {
-        // TODO Auto-generated method stub
-
     }
 
 }

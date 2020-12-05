@@ -6,9 +6,12 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot;
+
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
-import frc.robot.commands.TestCommand;
-import frc.robot.commands.SetCommand;
+import frc.robot.commands.ManyParameterCommand;
+import frc.robot.commands.OneParameterCommand;
+import frc.robot.commands.ZeroParameterCommand;
+import frc.robot.subsystems.ExampleSubsystem;
 
 
 /**
@@ -16,7 +19,7 @@ import frc.robot.commands.SetCommand;
  * Unless you know what you are doing, do not modify this file except to change
  * the parameter class to the startRobot call.
  */
-public class keyParser {
+public class KeyParser {
     private static SequentialCommandGroup group;
     private static String[] keyArray;
 
@@ -40,13 +43,15 @@ public class keyParser {
                 params = arr[1];
             }
 
-            if (ID.equals("test")) {
-                group.addCommands(new TestCommand(params));
-            } else if (ID.equals("set")) {                
-                group.addCommands(new SetCommand(params));
-            } 
+            if (ID.equals("zero")) {
+                group.addCommands(new ZeroParameterCommand(params, new ExampleSubsystem()));
+            } else if (ID.equals("one")) {                
+                group.addCommands(new OneParameterCommand(params, new ExampleSubsystem()));
+            } else if (ID.equals("many")) {
+                group.addCommands(new ManyParameterCommand(params, new ExampleSubsystem()));
+            }
             // continue chaining if-else statements for each key
-            // bad code - fix later if time - clone method??
+            
         }
         return group;
     }
