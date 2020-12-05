@@ -8,20 +8,20 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.ExampleSubsystem;
 
 /**
  * A framework for the commands which can be called with the autonomous parser
  */
 
-public class ParsableCommand extends CommandBase {
+public abstract class ParsableCommand extends CommandBase {
     
     /**
      * Default constructor
      */
     public ParsableCommand() {
-
+       
     }
-
     /**
      * Constructor to be used with autonomous parsing
      * @param param the parameters for the command passed in by the user
@@ -33,9 +33,7 @@ public class ParsableCommand extends CommandBase {
     /**
      * Separates the parameters out
      */
-    public void parse () { 
-
-    }
+    public abstract void parse ();
 
     @Override
    

@@ -1,6 +1,8 @@
 package frc.robot.commands;
+
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.ExampleSubsystem;
 
 /*----------------------------------------------------------------------------*/
 /* Copyright (c) 2018-2019 FIRST. All Rights Reserved.                        */
@@ -14,21 +16,26 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 /**
  * A mock version of the  Command
  */
-public class TestCommand extends ParsableCommand {
+public class ManyParamCommand extends ParsableCommand {
+    private final ExampleSubsystem m_subsystem;
+
     String a;
-    
-    public TestCommand() {
 
-    }
+    public ManyParamCommand(ExampleSubsystem subsystem) {
+        m_subsystem = subsystem;
+        // Use addRequirements() here to declare subsystem dependencies.
+        addRequirements(subsystem);
+      }
 
-    public TestCommand(String params) {
+    public ManyParamCommand(String params, ExampleSubsystem subsystem) {
+        m_subsystem = subsystem;
         a = params;
     }
 
     
     @Override
     public void initialize() {
-        SmartDashboard.putString("test " + a + " params", a);
+        SmartDashboard.putString("ManyParamCommand Parameters: " + a, a);
     }
 
     @Override
@@ -38,6 +45,12 @@ public class TestCommand extends ParsableCommand {
     
     public boolean isFinished(){
         return true;
+    }
+
+    @Override
+    public void parse() {
+        // TODO Auto-generated method stub
+
     }
 
 }

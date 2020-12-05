@@ -11,9 +11,6 @@ import frc.robot.commands.TestCommand;
 import frc.robot.commands.SetCommand;
 
 
-
-
-
 /**
  * Do NOT add any static variables to this class, or any initialization at all.
  * Unless you know what you are doing, do not modify this file except to change
