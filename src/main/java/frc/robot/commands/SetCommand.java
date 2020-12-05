@@ -14,21 +14,24 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 /**
  * A mock version of the  Command
  */
-public class ExampleAutonCommand extends ParsableCommand {
-    String inputParameters;
+public class SetCommand extends ParsableCommand {
+    String a;
     
-    public ExampleAutonCommand() {
+    public SetCommand() {
 
     }
 
-    public ExampleAutonCommand(String params) {
+    public SetCommand(String params) {
         a = params;
     }
 
+    public void parse () { 
+        
+    }
     
     @Override
     public void initialize() {
-        SmartDashboard.putString("Parameters: " + a, a);
+        SmartDashboard.putString("set " + a + " params", a);
     }
 
     @Override

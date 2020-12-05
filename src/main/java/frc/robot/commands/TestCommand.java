@@ -1,3 +1,7 @@
+package frc.robot.commands;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj2.command.CommandBase;
+
 /*----------------------------------------------------------------------------*/
 /* Copyright (c) 2018-2019 FIRST. All Rights Reserved.                        */
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
@@ -5,47 +9,35 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /**
- * A framework for the commands which can be called with the autonomous parser
+ * A mock version of the  Command
  */
-
-public class ParsableCommand extends CommandBase {
+public class TestCommand extends ParsableCommand {
+    String a;
     
-    /**
-     * Default constructor
-     */
-    public ParsableCommand() {
+    public TestCommand() {
 
     }
 
-    /**
-     * Constructor to be used with autonomous parsing
-     * @param param the parameters for the command passed in by the user
-     */
-    public ParsableCommand (String param) {
-       
+    public TestCommand(String params) {
+        a = params;
     }
 
-    /**
-     * Separates the parameters out
-     */
-    public void parse () { 
-
-    }
-
+    
     @Override
-   
     public void initialize() {
-        
+        SmartDashboard.putString("test " + a + " params", a);
     }
 
     @Override
     public void execute() {
 
+    }
+    
+    public boolean isFinished(){
+        return true;
     }
 
 }

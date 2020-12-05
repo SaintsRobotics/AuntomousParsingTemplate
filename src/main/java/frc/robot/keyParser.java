@@ -7,7 +7,10 @@
 
 package frc.robot;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
-import frc.robot.commands.ExampleAutonCommand;
+import frc.robot.commands.TestCommand;
+import frc.robot.commands.SetCommand;
+
+
 
 
 
@@ -20,10 +23,6 @@ public class keyParser {
     private static SequentialCommandGroup group;
     private static String[] keyArray;
 
-    private static String keySeparator;
-    private static String identifierSeparator;
-
-
     /**
      * This function separates a string input from the user into a sequence of 
      * commands. 
@@ -32,20 +31,22 @@ public class keyParser {
      * 
      */
     public static SequentialCommandGroup parse(String rawInput) {
-        keyArray = rawInput.split(keySeparator);
+        keyArray = rawInput.split("; ");
         group = new SequentialCommandGroup();
         
         for (String key : keyArray) {
         
-            String[] arr = key.split(identifierSeparator);// keys will be formatted: ID@params 
+            String[] arr = key.split("@"); // keys will be formatted: ID@params 
             String ID = arr[0];
             String params = "";
             if(arr.length > 1){
                 params = arr[1];
             }
 
-            if (ID.equals("commandIdentifier1")) {
-                group.addCommands(new ExampleAutonCommand(params));
+            if (ID.equals("test")) {
+                group.addCommands(new TestCommand(params));
+            } else if (ID.equals("set")) {                
+                group.addCommands(new SetCommand(params));
             } 
             // continue chaining if-else statements for each key
             // bad code - fix later if time - clone method??
