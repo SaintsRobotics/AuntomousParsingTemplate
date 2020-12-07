@@ -19,7 +19,8 @@ import frc.robot.subsystems.ExampleSubsystem;
 public class ManyParameterCommand extends ParsableCommand {
     private final ExampleSubsystem m_subsystem;
 
-    String a;
+    String rawInput;
+    String[] separateParams;
 
     public ManyParameterCommand(ExampleSubsystem subsystem) {
         m_subsystem = subsystem;
@@ -29,13 +30,14 @@ public class ManyParameterCommand extends ParsableCommand {
 
     public ManyParameterCommand(String params, ExampleSubsystem subsystem) {
         m_subsystem = subsystem;
-        a = params;
+        rawInput = params;
+        parse();
     }
 
     
     @Override
     public void initialize() {
-        SmartDashboard.putString("ManyParamCommand Parameters: " + a, a);
+        SmartDashboard.putStringArray("ManyParamCommand Parameters: ", separateParams);
     }
 
     @Override
@@ -49,8 +51,7 @@ public class ManyParameterCommand extends ParsableCommand {
 
     @Override
     public void parse() {
-        // TODO Auto-generated method stub
-
+        separateParams = rawInput.split(", ");
     }
 
 }
