@@ -53,6 +53,7 @@ public class KeyParser {
              * Add the if-else statements here. This is the main section of code that should be changed. 
              * You should check if the ID is equal to the unique identifier you have chosen to map to each command.
              * Any and all specific parameters the command needs should be passed in via the params variable. 
+             * The identifiers can be stored in Constants.java or here if so desired
              *
              * LINES UNDER MUST BE CHANGED FOR THIS TO WORK
              * THIS IS AN EXAMPLE OF THE FORMATTING
