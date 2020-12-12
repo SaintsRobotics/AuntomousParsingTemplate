@@ -59,6 +59,8 @@ public class KeyParser {
              * THIS IS AN EXAMPLE OF THE FORMATTING
              * REPLACE THE COMMANDS WITH YOUR DESIRED COMMANDS AND THE IDS WITH YOUR DESIRED IDS
              */
+
+             // TODO need to feed in subsystems (from where???)
             if (ID.equals("zero")) {
                 group.addCommands(new ZeroParameterCommand(params, new ExampleSubsystem()));
             } else if (ID.equals("one")) {                
