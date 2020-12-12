@@ -21,7 +21,7 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   Constants constants = new Constants();
-  private  SequentialCommandGroup m_autoCommand;
+  private  SequentialCommandGroup m_autoCommandGroup;
 
 
 
@@ -49,8 +49,8 @@ public class RobotContainer {
    *
    * @return the command to run in autonomous
    */
-  public SequentialCommandGroup getAutonomousCommand(String rawInput) {
-    m_autoCommand = KeyParser.parse(rawInput);
-    return m_autoCommand;
+  public SequentialCommandGroup getAutonomousCommandGroup(String rawInput) {
+    m_autoCommandGroup = KeyParser.parse(rawInput);
+    return m_autoCommandGroup;
   }
 }

@@ -12,12 +12,20 @@ import frc.robot.subsystems.ExampleSubsystem;
 
 /**
  * A framework for the commands which can be called with the autonomous parser
+ * some examples or use cases for this could be:
+ * - distance to drive in a move command
+ * - robot heading angles
+ * - shooter RPMs 
+ * - delays for commands
  */
 
+ 
 public abstract class ParsableCommand extends CommandBase {
     
     /**
-     * Default constructor
+     * Default constructor 
+     * This constructor is not compatible with the rest of the autonomous parsing framework.
+     * 
      */
     public ParsableCommand() {
        
@@ -27,23 +35,15 @@ public abstract class ParsableCommand extends CommandBase {
      * @param param the parameters for the command passed in by the user
      */
     public ParsableCommand (String param) {
-       
+       this.parse();
     }
 
     /**
      * Separates the parameters out
+     * See ZeroParameterCommand, OneParameterCommand, ManyParameterCommand for examples of the parse method.
+     * 
+     * YOU NEED TO IMPLEMENT THIS METHOD FOR EACH INDIVIDUAL COMMAND
      */
     public abstract void parse ();
-
-    @Override
-   
-    public void initialize() {
-        
-    }
-
-    @Override
-    public void execute() {
-
-    }
 
 }

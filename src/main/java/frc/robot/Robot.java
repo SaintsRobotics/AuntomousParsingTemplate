@@ -70,7 +70,7 @@ public class Robot extends TimedRobot {
   @Override
   public void autonomousInit() {
     String userAutonInput = SmartDashboard.getString("Auton Values", null);  
-    m_autonomousCommand = m_robotContainer.getAutonomousCommand(userAutonInput);
+    m_autonomousCommand = m_robotContainer.getAutonomousCommandGroup(userAutonInput);
 
     // schedule the autonomous command (example)
     if (m_autonomousCommand != null) {

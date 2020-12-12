@@ -15,6 +15,11 @@ import frc.robot.subsystems.ExampleSubsystem;
 
 
 /**
+ * Change the if else statements at the bottom of the file.
+ * Each command you want the parser to be able to use needs an identifier.
+ * The identifier needs to be unique to each command, and is what goes in the if check. 
+ * Follow the examples below. 
+ * 
  * Do NOT add any static variables to this class, or any initialization at all.
  * Unless you know what you are doing, do not modify this file except to change
  * the parameter class to the startRobot call.
@@ -30,12 +35,13 @@ public class KeyParser {
      * @return the sequence of commands to be run in autonomous 
      * 
      */
-    public static SequentialCommandGroup parse(String rawInput) {
-        keyArray = rawInput.split("; ");
+    public static SequentialCommandGroup parse(String rawInput) { 
+        keyArray = rawInput.split("; "); // keys will be separated by a semicolon
         group = new SequentialCommandGroup();
         
-        for (String key : keyArray) {
-        
+        for (String key : keyArray) { 
+            
+            
             String[] arr = key.split("@"); // keys will be formatted: ID@params 
             String ID = arr[0];
             String params = "";
@@ -43,6 +49,15 @@ public class KeyParser {
                 params = arr[1];
             }
 
+            /**
+             * Add the if-else statements here. This is the main section of code that should be changed. 
+             * You should check if the ID is equal to the unique identifier you have chosen to map to each command.
+             * Any and all specific parameters the command needs should be passed in via the params variable. 
+             *
+             * LINES UNDER MUST BE CHANGED FOR THIS TO WORK
+             * THIS IS AN EXAMPLE OF THE FORMATTING
+             * REPLACE THE COMMANDS WITH YOUR DESIRED COMMANDS AND THE IDS WITH YOUR DESIRED IDS
+             */
             if (ID.equals("zero")) {
                 group.addCommands(new ZeroParameterCommand(params, new ExampleSubsystem()));
             } else if (ID.equals("one")) {                
@@ -50,7 +65,7 @@ public class KeyParser {
             } else if (ID.equals("many")) {
                 group.addCommands(new ManyParameterCommand(params, new ExampleSubsystem()));
             }
-            // continue chaining if-else statements for each key
+            
             
         }
         return group;

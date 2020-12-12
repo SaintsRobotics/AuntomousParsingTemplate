@@ -50,6 +50,7 @@ public class ManyParameterCommand extends ParsableCommand {
     }
 
     @Override
+    // If your parameters are not strings, use .toDouble, etc. to convert between types AFTER it's been separated/ parsed
     public void parse() {
         separateParams = rawInput.split(", ");
     }
