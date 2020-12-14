@@ -22,6 +22,7 @@ public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
 
   private RobotContainer m_robotContainer;
+  public static SubsystemMap m_subsystemMap;
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -33,7 +34,7 @@ public class Robot extends TimedRobot {
     // autonomous chooser on the dashboard.
     SmartDashboard.putString("Auton Values", "key@params1; key@params2...");
     m_robotContainer = new RobotContainer();
-
+    m_subsystemMap = new SubsystemMap();
     String userAutonInput = SmartDashboard.getString("Auton Values", null);  
   }
 

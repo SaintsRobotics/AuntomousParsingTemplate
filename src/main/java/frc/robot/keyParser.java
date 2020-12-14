@@ -11,7 +11,6 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.commands.ManyParameterCommand;
 import frc.robot.commands.OneParameterCommand;
 import frc.robot.commands.ZeroParameterCommand;
-import frc.robot.subsystems.ExampleSubsystem;
 
 /**
  * Change the if else statements at the bottom of the file. Each command you
@@ -53,20 +52,20 @@ public class KeyParser {
              * be changed. You should check if the ID is equal to the unique identifier you
              * have chosen to map to each command. Any and all specific parameters the
              * command needs should be passed in via the params variable. The identifiers
-             * can be stored in Constants.java or here if so desired
+             * can be stored in Constants.java or here if so desired. The subsystem for each command should be fed in via the subsystem map.
              *
-             * LINES UNDER MUST BE CHANGED FOR THIS TO WORK THIS IS AN EXAMPLE OF THE
-             * FORMATTING REPLACE THE COMMANDS WITH YOUR DESIRED COMMANDS AND THE IDS WITH
-             * YOUR DESIRED IDS
+             * LINES UNDER MUST BE CHANGED FOR THIS TO WORK.
+             * THIS IS AN EXAMPLE OF THE FORMATTING.
+             * REPLACE THE COMMANDS WITH YOUR DESIRED COMMANDS AND THE IDS WITH YOUR DESIRED IDS.
+             * DO NOT CONSTRUCT NEW SUBSYSTEMS HERE; FEED THEM IN FROM SUBSYSTEMMAP.JAVA 
              */
 
-             // TODO need to feed in subsystems (from where???)
             if (ID.equals("zero")) {
-                group.addCommands(new ZeroParameterCommand(params, new ExampleSubsystem()));
+                group.addCommands(new ZeroParameterCommand(params, SubsystemMap.exampleSubsystem));
             } else if (ID.equals("one")) {
-                group.addCommands(new OneParameterCommand(params, new ExampleSubsystem()));
+                group.addCommands(new OneParameterCommand(params, SubsystemMap.exampleSubsystem));
             } else if (ID.equals("many")) {
-                group.addCommands(new ManyParameterCommand(params, new ExampleSubsystem()));
+                group.addCommands(new ManyParameterCommand(params, SubsystemMap.exampleSubsystem));
             }
 
         }
